@@ -1,0 +1,30 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.icon-register {
+    width: 200px;
+}
+
+.btn {
+    padding: 12px 0;
+}
+
+.mat-mdc-form-field-hint {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 767px) {
+    .icon-register {
+        margin: 1rem auto 2rem auto;
+    }
+    .btn {
+        margin: auto !important;
+    }
+    .btn-danger {
+        margin-bottom: 1rem !important;
+    }
+    .buttons {
+        padding-bottom: 2rem !important;
+    }
+}

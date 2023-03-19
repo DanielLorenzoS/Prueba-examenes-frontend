@@ -1,1 +1,80 @@
-<p>signup works!</p>
+<p class="col-12 text-center display-3 p-4 pb-0">Sign Up</p>
+<div class="all d-flex align-items-center h-75">
+    <div class="col-12 col-md-8 col-lg-6 m-auto text-dark row p-0">
+        <div class="col-12 col-md-5 icon-container bg-transparent d-flex align-items-center">
+            <img class="icon-register bg-transparent" src="../../../assets/registro.png" alt="icon">
+        </div>
+        <div class="form-container col-12 col-md-6 bg-transparent pb-4">
+            <form (ngSubmit)="onSubmit()" [formGroup]="userForm" id="usForm">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input type="username" matInput formControlName="username" value="username">
+                </mat-form-field>
+                <mat-hint *ngIf="userForm.get('username')?.touched && userForm.get('username')?.errors?.['required']"
+                    class="text-danger">The username is required</mat-hint>
+                <mat-hint *ngIf="userForm.get('username')?.touched && userForm.get('username')?.errors?.['minlength']"
+                    class="text-danger">The username must be longer than {{
+                    userForm.get('username')?.errors?.['minlength'].requiredLength }} characteres</mat-hint>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput formControlName="password">
+                </mat-form-field>
+                <mat-hint *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['required']"
+                    class="text-danger">The password is required</mat-hint>
+                <mat-hint *ngIf="userForm.get('password')?.touched && userForm.get('password')?.errors?.['minlength']"
+                    class="text-danger">The password must be longer than {{
+                    userForm.get('password')?.errors?.['minlength'].requiredLength }} characteres</mat-hint>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input type="name" matInput formControlName="name">
+                </mat-form-field>
+                <mat-hint *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']"
+                    class="text-danger">The name is required</mat-hint>
+                <mat-hint *ngIf="userForm.get('name')?.touched && userForm.get('name')?.errors?.['minlength']"
+                    class="text-danger">The name must be longer than {{
+                    userForm.get('name')?.errors?.['minlength'].requiredLength }} characteres</mat-hint>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input type="lastname" matInput formControlName="lastname">
+                </mat-form-field>
+                <mat-hint *ngIf="userForm.get('lastname')?.touched && userForm.get('lastname')?.errors?.['required']"
+                    class="text-danger">The lastname is required</mat-hint>
+                <mat-hint *ngIf="userForm.get('lastname')?.touched && userForm.get('lastname')?.errors?.['minlength']"
+                    class="text-danger">The lastname must be longer than {{
+                    userForm.get('lastname')?.errors?.['minlength'].requiredLength }} characteres</mat-hint>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email">
+                </mat-form-field>
+                <mat-hint *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']"
+                    class="text-danger">The email is required</mat-hint>
+                <mat-hint *ngIf="userForm.get('email')?.touched && userForm.get('email')?.errors?.['email']"
+                    class="text-danger">The email is not valid </mat-hint>
+
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Phone</mat-label>
+                    <input type="text" matInput formControlName="phone" (keypress)="phoneValidator($event)">
+                </mat-form-field>
+                <mat-hint *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.errors?.['required']"
+                    class="text-danger">The phone is required</mat-hint>
+                <mat-hint *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.errors?.['minlength']"
+                    class="text-danger">The phone must have {{
+                    userForm.get('phone')?.errors?.['minlength'].requiredLength }} characters </mat-hint>
+                <mat-hint *ngIf="userForm.get('phone')?.touched && userForm.get('phone')?.errors?.['maxlength']"
+                    class="text-danger">The phone must have {{
+                    userForm.get('phone')?.errors?.['maxlength'].requiredLength }} characters </mat-hint>
+
+            </form>
+        </div>
+        <div class="buttons col-12 row p-0 m-auto mt-4">
+            <button class="col-10 col-md-5 m-auto mr-0 btn btn-danger signup rounded" color="warn"
+                (click)="reset()">Clear Form</button>
+            <button class="col-10 col-md-5 m-auto ml-0 btn btn-success rounded" [disabled]="userForm.invalid"
+                form="usForm" color="primary">Sign Up</button>
+        </div>
+    </div>
+</div>
