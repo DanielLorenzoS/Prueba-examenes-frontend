@@ -19,6 +19,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.userForm = this.initForm();
   }
+
   phoneValidator(event: any) {
     let key;
     if (event.type === 'paste') {
@@ -35,9 +36,11 @@ export class SignupComponent implements OnInit {
       }
     }
   }
+
   reset(): void {
     this.userForm.reset();
   }
+  
   onSubmit(): void {
     this.userService.addUser(this.userForm.value).subscribe(e => {
       Swal.fire({

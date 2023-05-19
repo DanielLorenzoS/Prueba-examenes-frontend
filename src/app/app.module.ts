@@ -14,13 +14,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { SidenavComponent } from './pages/sidenav/sidenav.component';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { UsersComponent } from './components/users/users.component';
+import { MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    SidenavComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     MatCardModule,
     HttpClientModule,
+    MatSidenavModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

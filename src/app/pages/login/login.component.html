@@ -1,1 +1,47 @@
-<p>login works!</p>
+<div class="fluid-container">
+    <p class="col-12 text-center display-3 p-4 pb-0">Login</p>
+    <div class="all d-flex align-items-baseline h-75">
+        <div class="center-container col-12 col-md-8 col-lg-6 m-auto text-dark row p-0">
+            <div class="col-12 col-md-8 icon-container bg-transparent d-flex align-items-center m-auto">
+                <img class="icon-register bg-transparent " src="../../../assets/login.png" alt="icon">
+            </div>
+            <div class="form-container col-12 col-md-8 bg-transparent m-auto">
+                <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" id="usForm" class="pb-1">
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Username</mat-label>
+                        <input type="username" matInput formControlName="username" value="username">
+                    </mat-form-field>
+                    <mat-hint
+                        *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['required']"
+                        class="text-danger">The username is required</mat-hint>
+                    <mat-hint
+                        *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.['minlength']"
+                        class="text-danger">The username must be longer than {{
+                        loginForm.get('username')?.errors?.['minlength'].requiredLength }} characteres</mat-hint>
+
+                    <mat-form-field class="w-100" appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput formControlName="password">
+                    </mat-form-field>
+                    <mat-hint
+                        *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['required']"
+                        class="text-danger">The password is required</mat-hint>
+                    <mat-hint
+                        *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors?.['minlength']"
+                        class="text-danger">The password must be longer than {{
+                        loginForm.get('password')?.errors?.['minlength'].requiredLength }} characteres</mat-hint>
+
+                </form>
+            </div>
+            <div class="buttons col-12 row p-0 m-auto">
+                <div class="col-0 col-md-1"></div>
+                <button class="col-10 col-md-4 m-auto ml-0 btn btn-success rounded" [disabled]="loginForm.invalid"
+                    form="usForm" color="primary">Login</button>
+                <button class="col-10 col-md-4 m-auto mr-0 btn btn-primary signup" color="warn"
+                    routerLink="/signup">Sign
+                    Up</button>
+                <div class="col-0 col-md-1"></div>
+            </div>
+        </div>
+    </div>
+</div>

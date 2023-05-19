@@ -1,5 +1,5 @@
 <p class="col-12 text-center display-3 p-4 pb-0">Sign Up</p>
-<div class="all d-flex align-items-center h-75">
+<div class="all d-flex h-75">
     <div class="col-12 col-md-8 col-lg-6 m-auto text-dark row p-0">
         <div class="col-12 col-md-5 icon-container bg-transparent d-flex align-items-center">
             <img class="icon-register bg-transparent" src="../../../assets/registro.png" alt="icon">
@@ -71,8 +71,8 @@
             </form>
         </div>
         <div class="buttons col-12 row p-0 m-auto mt-4">
-            <button class="col-10 col-md-5 m-auto mr-0 btn btn-danger signup rounded" color="warn"
-                (click)="reset()">Clear Form</button>
+            <button class="col-10 col-md-5 m-auto mr-0 btn btn-primary signup rounded" color="warn"
+                routerLink="/login">Login</button>
             <button class="col-10 col-md-5 m-auto ml-0 btn btn-success rounded" [disabled]="userForm.invalid"
                 form="usForm" color="primary">Sign Up</button>
         </div>
